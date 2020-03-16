@@ -5,9 +5,6 @@ export class AppareilService {
   appareilsSubject = new Subject<any[]>();
 
   private appareils = [
-    {
-      //. @Todo, insérer le JSON
-    }
   ];
 
   getAppareilById(id: number) {

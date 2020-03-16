@@ -14,10 +14,15 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import {AuthGuard} from './services/auth-guard.service';
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
+  { path: 'articles', canActivate: [AuthGuard], component: ArticlesComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
+  { path: 'article/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
@@ -32,13 +37,15 @@ const appRoutes: Routes = [
     SingleAppareilComponent,
     AppareilViewComponent,
     FourOhFourComponent,
-    EditAppareilComponent
+    EditAppareilComponent,
+    ArticlesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
     AppareilService,

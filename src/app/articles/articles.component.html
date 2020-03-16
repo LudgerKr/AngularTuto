@@ -1,0 +1,15 @@
+<div>
+    <h1>Article collection</h1>
+    <div class="row">
+        <div class="col-sm-5" *ngFor="let article of articles | async; let i = index">
+            <div class="card">
+                <div class="card-body">
+                    <h3><a routerLink="article/{{ article.id }}">Title : {{ article.title }}</a></h3>
+                    <p>Content : {{ article.content }}</p>
+                    <p>Weight : {{ article.weight }} Height : {{ article.height }} Width : {{ article.width }}</p>
+                    <p>Length : {{ article.length }} Stock : {{ article.stock }} Price : {{ article.price }} €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
