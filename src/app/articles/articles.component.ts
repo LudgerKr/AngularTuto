@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ArticlesService } from '../articles.service';
+import {Component, Input, OnInit} from '@angular/core';
+import { ArticlesService } from '../services/articles.service';
 
 @Component({
   selector: 'app-articles',
@@ -9,6 +9,7 @@ import { ArticlesService } from '../articles.service';
 export class ArticlesComponent implements OnInit {
 
   articles;
+  @Input() id: number;
 
   constructor(private articlesService: ArticlesService) { }
 

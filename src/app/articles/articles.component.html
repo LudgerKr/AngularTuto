@@ -4,10 +4,15 @@
         <div class="col-sm-5" *ngFor="let article of articles | async; let i = index">
             <div class="card">
                 <div class="card-body">
-                    <h3><a routerLink="article/{{ article.id }}">Title : {{ article.title }}</a></h3>
+                    <h3><a routerLink="{{ article.id }}">Title : {{ article.title }}</a></h3>
+                    <img src="{{ article.imageMain }}" alt="">
                     <p>Content : {{ article.content }}</p>
                     <p>Weight : {{ article.weight }} Height : {{ article.height }} Width : {{ article.width }}</p>
                     <p>Length : {{ article.length }} Stock : {{ article.stock }} Price : {{ article.price }} €</p>
+                    <p>Created At : {{ article.createdAt }}</p>
+                    <p>UpdatedAt : {{ article.updatedAt }}</p>
+                    <p>Category : {{ article.category.name }} Type : {{ article.articleType.name }} But : {{ article.articlePurpose.name }}</p>
+                    <p>Brand : {{ article.brand.name }}</p>
                 </div>
             </div>
         </div>

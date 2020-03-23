@@ -3,28 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule} from '@angular/forms';
-import { AppareilService} from './services/appareil.service';
 import { AuthService } from './services/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
-import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { SingleArticleComponent } from './single-article/single-article.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
-import {AuthGuard} from './services/auth-guard.service';
-import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
+import { AuthGuard } from './services/auth-guard.service';
 import { ArticlesComponent } from './articles/articles.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ArticlesService } from './services/articles.service';
 
 
 const appRoutes: Routes = [
-  { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
   { path: 'articles', canActivate: [AuthGuard], component: ArticlesComponent },
-  { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
-  { path: 'article/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: '', component: AppareilViewComponent },
+  { path: 'articles/:id', canActivate: [AuthGuard], component: SingleArticleComponent },
+  { path: 'articles/edit/:id', canActivate: [AuthGuard], component: EditArticleComponent },
+  { path: '', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
@@ -32,12 +27,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AppareilComponent,
     AuthComponent,
-    SingleAppareilComponent,
-    AppareilViewComponent,
+    SingleArticleComponent,
     FourOhFourComponent,
-    EditAppareilComponent,
     ArticlesComponent,
   ],
   imports: [
@@ -48,7 +40,7 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [
-    AppareilService,
+    ArticlesService,
     AuthService,
     AuthGuard
   ],

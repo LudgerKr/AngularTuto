@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { articleService } from '../articles.service';
+import { ArticlesService } from '../services/articles.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -9,33 +9,35 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class SingleArticleComponent implements OnInit {
 
-  title     = 'Title';
-  content   = 'Content';
-  weight    = 'Weight';
-  height    = 'Height';
-  width     = 'Width';
-  length    = 'Length';
-  stock     = 'Stock';
-  price     = 'Price';
+  constructor(private articleService: ArticlesService, private route: ActivatedRoute, private router: Router) { }
 
-  constructor(private articleService: articleService, private route: ActivatedRoute, private router: Router) { }
+  data: any;
+  id: any;
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
-    const articleService = this.articleService.getArticleById(+id);
+    this.id = this.route.snapshot.params.id;
+    this.getArticleById();
+  }
 
-    if (articleService != null) {
-      this.title    = this.articleService.getArticleById(+id).title;
-      this.content  = this.articleService.getArticleById(+id).content;
-      this.weight   = this.articleService.getArticleById(+id).weight;
-      this.height   = this.articleService.getArticleById(+id).height;
-      this.width    = this.articleService.getArticleById(+id).width;
-      this.length   = this.articleService.getArticleById(+id).length;
-      this.stock    = this.articleService.getArticleById(+id).length;
-      this.price    = this.articleService.getArticleById(+id).price;
+  getArticleById() {
+    this.articleService.getArticleById(this.id).subscribe(data => {
+      this.data = data;
+    });
+  }
+
+  deleteArticle() {
+    if (confirm('Etes-vous sûr de vouloir supprimer cet article ?')) {
+      this.articleService.deleteArticle(this.id).subscribe(data => {
+        this.data = data;
+      });
     } else {
-      this.router.navigate(['not-found']);
+      return null;
     }
   }
 
+  editArticle() {
+    this.articleService.editArticle(this.id).subscribe(data => {
+      this.data = data;
+    });
+  }
 }

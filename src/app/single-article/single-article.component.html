@@ -1,9 +1,11 @@
-<h2>{{ Title }}</h2>
-<p>Content : {{ content }}</p>
-<p>Weight : {{ weight }}</p>
-<p>Height : {{ height }}</p>
-<p>Width : {{ width }}</p>
-<p>Length : {{ length }}</p>
-<p>Stock : {{ stock }}</p>
-<p>Price : {{ price }}</p>
+<h3>Title : {{ data.title }}</h3>
+<img src="{{ data.imageMain }}" alt="">
+<p>Content : {{ data.content }}</p>
+<p>Weight : {{ data.weight }} Height : {{ data.height }} Width : {{ data.width }}</p>
+<p>Length : {{ data.length }} Stock : {{ data.stock }} Price : {{ data.price }} €</p>
+<p>Created At : {{ data.createdAt }}</p>
+<p>UpdatedAt : {{ data.updatedAt }}</p>
+<p>Category : {{ data.category.name }} Type : {{ data.articleType.name }} But : {{ data.articlePurpose.name }}</p>
+<p>Brand : {{ data.brand.name }}</p>
+<a routerLink="/articles" class="btn btn-danger" (click)="deleteArticle()">Delete</a>
 <a routerLink="/articles">Retour à la liste</a>
