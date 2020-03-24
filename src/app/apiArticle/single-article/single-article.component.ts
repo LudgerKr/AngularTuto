@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticlesService } from '../services/articles.service';
+import { ArticlesService } from '../../services/articles.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -9,8 +9,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class SingleArticleComponent implements OnInit {
 
-  constructor(private articleService: ArticlesService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private articleService: ArticlesService, private route: ActivatedRoute) { }
 
+  form: any;
   data: any;
   id: any;
 
@@ -33,11 +34,5 @@ export class SingleArticleComponent implements OnInit {
     } else {
       return null;
     }
-  }
-
-  editArticle() {
-    this.articleService.editArticle(this.id).subscribe(data => {
-      this.data = data;
-    });
   }
 }

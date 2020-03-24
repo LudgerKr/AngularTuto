@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <form (ngSubmit)="createArticle(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="title">
+          Title of the article :
+        </label>
+        <input type="text" id="title" class="form-control" name="title" ngModel>
+        <label for="category">
+          Category :
+        </label>
+        <input type="text" id="category" class="form-control" name="category" ngModel>
+        <label for="content">
+          Content :
+        </label>
+        <textarea type="text" id="content" class="form-control" name="content" style="margin: 0px 4px 0px 0px; height: 193px; width: 467px;" ngModel></textarea>
+        <label for="weight">
+          Weight :
+        </label>
+        <input type="text" id="weight" class="form-control" name="weight" ngModel>
+        <label for="height">
+          Height :
+        </label>
+        <input type="text" id="height" class="form-control" name="height" ngModel>
+        <label for="width">
+          Width :
+        </label>
+        <input type="text" id="width" class="form-control" name="width" ngModel>
+        <label for="length">
+          Length :
+        </label>
+        <input type="text" id="length" class="form-control" name="length" ngModel>
+        <label for="stock">
+          Stock :
+        </label>
+        <input type="text" id="stock" class="form-control" name="stock" ngModel>
+        <label for="price">
+          Price :
+        </label>
+        <input type="text" id="price" class="form-control" name="price" ngModel>
+        <label for="imageMain">
+          Image :
+        </label>
+        <input type="text" id="imageMain" class="form-control" name="imageMain" ngModel>
+        <label for="price">
+          Compatibility :
+        </label>
+        <input type="text" id="compatibility" class="form-control" name="compatibility" ngModel>
+        <label for="articleType">
+          Type :
+        </label>
+        <input type="text" id="articleType" class="form-control" name="articleType" ngModel>
+        <label for="price">
+          Purpose :
+        </label>
+        <input type="text" id="articlePurpose" class="form-control" name="articlePurpose" ngModel>
+        <label for="price">
+          Brand :
+        </label>
+        <input type="text" id="brand" class="form-control" name="brand" ngModel>
+      </div>
+      <button class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+</div>

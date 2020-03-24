@@ -5,9 +5,10 @@ import 'rxjs/add/operator/map';
 const config = {
   headers: {
     // tslint:disable-next-line:max-line-length
-    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODQ5NTA3NzUsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiZXhwIjoxNTg0OTg2Nzc1fQ.PdotXZXrpfCdW7nDvKEP3HP1Ni_ZzHmMcGTBWoMV6MJFlw_POk3yRwdGaxIdbrcUTBELakUY--MbsQJduIFqQ6cS02EG76ZArWxb63tcVbMZ9TnYfBONO2Rz0dFtpQ6yDQi3NWhDqkTRRoxNAV5BNP_dFJ5Stg9yOq_lC35I7hJbfBE1kMjdl0cSCoPiGkdg1Up0ml3d30NiqRhjjYd6EN4IxbyogTww2YS0sz6GjK8aWDJbP9heWM9nrgGPogygSpCzPmiF3y22-d86pY_l10cGYSOKB0Q9AYEDkDbMJttVUKI5RIdO2LBT-sIFe76tdGl8Qhz9qxdZccYw73BQ9wqvVwOVWMq7DdlBqDGlxZBvXek19UCdS5DoGkgX40cqcX-nyuCipI60ydDATY1jFDuLZ9K6xRKYRXsNUlJ02y5LzYx65qqsqd9zZKJvMFi9OEuqFK3i3UOLhuWbZS_iBB10duOdoeOQhzxW0kpZQLqUcZFbbOgoiG6VJgIkM82xu2-EGw6M54dEQQ6roTQhCJ0sP_arkhPtE_8_slix4rrtKrYyIgDBSowfAWM--va_BDL0OH7bzc0JyBis_Ku2BwlUw6ydKvsRWV7W8RsKSNENgdptpD4uYDQXOd2CDpElVxkvPlR7kJzxPBUGIFsacZ0xUmibf9-OUvCYLX51HSI',
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1ODUwMzcyNDYsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiZXhwIjoxOTQ1MDM3MjQ2fQ.J-ssiLj7GQBzScxoPyEhZri_ehpqEzu7J4itWllEdN7XaOd2ipnw2eNZRHj60_CTof1h-SGJtikohHUZv9y_BKniaXI_FBgqP79q8-_bzaYKza5P-imlcKMnQvBUgfqeFBxSOZv8vupwsXdKjP2nDX0S8gyQdT2qdEQXmjanw9kMprv_R3osXJ6EYc0DfnWxaaUPXnwstymqKeZBIFLKvbBche9cOT4KUuZFNpkRxWaEBliy2ER6uCLYvhNDbANyvcFq6B85SEOYVrQBwiU3OlRdPyo51EEDM1KBsjMrdLyMYRhCezOHOaP3pQC6FruCvSP-LClv8rSii31_y74qBSwNHDMCQmqX-AaSLoovGYaTPqzJuPhRLuDW89yYzlz4Y-HCr3lsf6cQkiw7QFSxPsiISEJ5judW1liTg5xuY9vAo0mrQs6n4k03nfZ0b8ZHY2i0iwwXgtrF9XQi-NUsXItPrODoJu6hezdgxBoDJWd2kpnHzWIIrGocICvH5Vvd0eAUQ9w70T7inGlSlqU6kqOhZippcGMJwbBPy7azhyOBaTHg4tY9k2opWdE5DTGaS0H1ZOtXcl3k7MEgX-SQctj4o_igHrLRIzKit30AfJnO4aXOBpxxItRlS_VMskKlPgF_A_9-e657yJlnRqKoCWvJRMjuOJqr5au4IRKt28c',
   }
 };
+
 
 
 @Injectable({
@@ -30,7 +31,11 @@ export class ArticlesService {
     return this.http.delete('http://127.0.0.1:8000/api/article/' + id, config).map(res => res);
   }
 
-  editArticle(id: any) {
-    return this.http.put('http://127.0.0.1:8000/api/article/' + id, config).map(res => res);
+  postArticle(values: any) {
+    return this.http.post('http://127.0.0.1:8000/api/article', values, config).map(res => res);
+  }
+
+  updateArticle(id: any, values: any) {
+    return this.http.put('http://127.0.0.1:8000/api/article/' + id, values, config).map(res => res);
   }
 }

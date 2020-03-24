@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <form (ngSubmit)="updateArticle(data.id, f)" #f="ngForm">
+      <div class="form-group">
+        <label for="title">
+          Title of the article :
+        </label>
+        <input type="text" id="title" class="form-control" name="title" ngModel="{{ data.title }}">
+        <label for="category">
+          Category :
+        </label>
+        <input type="text" id="category" class="form-control" name="category" ngModel="{{ data.category.id }}">
+        <label for="content">
+          Content :
+        </label>
+        <textarea type="text" id="content" class="form-control" name="content" style="margin: 0px 4px 0px 0px; height: 193px; width: 467px;" ngModel="{{ data.content }}"></textarea>
+        <label for="weight">
+          Weight :
+        </label>
+        <input type="text" id="weight" class="form-control" name="weight" ngModel="{{ data.weight }}">
+        <label for="height">
+          Height :
+        </label>
+        <input type="text" id="height" class="form-control" name="height" ngModel="{{ data.height }}">
+        <label for="width">
+          Width :
+        </label>
+        <input type="text" id="width" class="form-control" name="width" ngModel="{{ data.width }}">
+        <label for="length">
+          Length :
+        </label>
+        <input type="text" id="length" class="form-control" name="length" ngModel="{{ data.length }}">
+        <label for="stock">
+          Stock :
+        </label>
+        <input type="text" id="stock" class="form-control" name="stock" ngModel="{{ data.stock }}">
+        <label for="price">
+          Price :
+        </label>
+        <input type="text" id="price" class="form-control" name="price" ngModel="{{ data.price }}">
+        <label for="imageMain">
+          Image :
+        </label>
+        <input type="text" id="imageMain" class="form-control" name="imageMain" ngModel="{{ data.imageMain }}">
+        <label for="price">
+          Compatibility :
+        </label>
+        <input type="text" id="compatibility" class="form-control" name="compatibility" ngModel="{{ data.compatibility.id }}">
+        <label for="articleType">
+          Type :
+        </label>
+        <input type="text" id="articleType" class="form-control" name="articleType" ngModel="{{ data.articleType.id }}">
+        <label for="price">
+          Purpose :
+        </label>
+        <input type="text" id="articlePurpose" class="form-control" name="articlePurpose" ngModel="{{ data.articlePurpose.id }}">
+        <label for="price">
+          Brand :
+        </label>
+        <input type="text" id="brand" class="form-control" name="brand" ngModel="{{ data.brand.id }}">
+      </div>
+      <button class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>

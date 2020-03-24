@@ -7,18 +7,21 @@ import { FormsModule} from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SingleArticleComponent } from './single-article/single-article.component';
+import { SingleArticleComponent } from './apiArticle/single-article/single-article.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
-import { ArticlesComponent } from './articles/articles.component';
+import { ArticlesComponent } from './apiArticle/articles/articles.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticlesService } from './services/articles.service';
+import { CreateArticleComponent } from './apiArticle/create-article/create-article.component';
+import { EditArticleComponent } from './apiArticle/edit-article/edit-article.component';
 
 
 const appRoutes: Routes = [
   { path: 'articles', canActivate: [AuthGuard], component: ArticlesComponent },
   { path: 'articles/:id', canActivate: [AuthGuard], component: SingleArticleComponent },
-  { path: 'articles/edit/:id', canActivate: [AuthGuard], component: EditArticleComponent },
+  { path: 'create', canActivate: [AuthGuard], component: CreateArticleComponent },
+  { path: 'edit/:id', canActivate: [AuthGuard], component: EditArticleComponent },
   { path: '', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -31,6 +34,8 @@ const appRoutes: Routes = [
     SingleArticleComponent,
     FourOhFourComponent,
     ArticlesComponent,
+    CreateArticleComponent,
+    EditArticleComponent,
   ],
   imports: [
     BrowserModule,
